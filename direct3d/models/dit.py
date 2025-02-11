@@ -433,7 +433,3 @@ class D3D_DiT(nn.Module):
 
         return output
 
-
-
-
-    

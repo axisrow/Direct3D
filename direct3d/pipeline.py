@@ -1,3 +1,5 @@
+# Modified from https://github.com/huggingface/diffusers/blob/main/src/diffusers/pipelines/stable_diffusion/pipeline_stable_diffusion.py
+
 import os
 from tqdm import tqdm
 from PIL import Image
