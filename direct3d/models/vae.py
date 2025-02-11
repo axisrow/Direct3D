@@ -491,6 +491,7 @@ class D3D_VAE(nn.Module):
                 method="lewiner"
             )
             vertices = vertices / grid_size * bbox_length + bbox_min
+            faces = faces[:, ::-1]
             meshes.append(trimesh.Trimesh(vertices, faces))
         return meshes
 
