@@ -68,7 +68,8 @@ def get_2d_sincos_pos_embed(
     grid = np.stack(grid, axis=0)
 
     grid = grid.reshape([2, 1, grid_size[0], grid_size[1]])
-    pos_embed = get_2d_sincos_pos_embed_from_grid(embed_dim, grid)
+    grid = torch.from_numpy(grid)
+    pos_embed = get_2d_sincos_pos_embed_from_grid(embed_dim, grid, output_type='pt')
     if cls_token and extra_tokens > 0:
         pos_embed = np.concatenate([np.zeros([extra_tokens, embed_dim]), pos_embed], axis=0)
     return pos_embed
@@ -110,7 +111,7 @@ class PatchEmbed(nn.Module):
         pos_embed = get_2d_sincos_pos_embed(
             embed_dim, (self.height, self.width), base_size=(self.height, self.width), interpolation_scale=self.interpolation_scale
         )
-        self.register_buffer("pos_embed", torch.from_numpy(pos_embed).float().unsqueeze(0), persistent=False)
+        self.register_buffer("pos_embed", pos_embed.float().unsqueeze(0), persistent=False)
 
     def forward(self, latent):
         height, width = latent.shape[-2] // self.patch_size, latent.shape[-1] // self.patch_size

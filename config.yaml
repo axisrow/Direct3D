@@ -1,0 +1,15 @@
+vae:
+  target: direct3d.models.vae.VAE
+  params: {}
+dit:
+  target: direct3d.models.dit.DiT
+  params: {}
+semantic_encoder:
+  target: direct3d.models.condition.SemanticEncoder
+  params: {}
+pixel_encoder:
+  target: direct3d.models.condition.PixelEncoder
+  params: {}
+scheduler:
+  target: direct3d.models.condition.Scheduler
+  params: {}

@@ -156,4 +156,3 @@ class Direct3dPipeline(object):
         outputs = {"meshes": meshes, "latents": latents}
 
         return outputs
-        
