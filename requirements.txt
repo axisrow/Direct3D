@@ -9,3 +9,4 @@ diffusers
 rembg
 omegaconf
 onnxruntime
+torchvision
